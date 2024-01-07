@@ -135,7 +135,7 @@ function generatePassword() {
     return getPasswordOptions();
   }
   else{
-    alert('Password length must be at least 8 characters.');
+    alert('Password length must be at least 8 characters but no more than 128.');
     return '';
   }
 
