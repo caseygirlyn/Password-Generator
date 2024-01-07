@@ -96,23 +96,30 @@ function getPasswordOptions() {
   const characters = [lowerCasedCharacters,upperCasedCharacters,numericCharacters,specialCharacters];
 
   let yourpassword = [];
+  let criteria = 0;
 
   for (let i = 0; i < charTypes.length; i++) {
     let charType = charTypes[i];
-    let confirmPasswordOption = confirm(`Click OK to confirm including ${charType} characters`);
+    let confirmPasswordOption = confirm(`Click OK to confirm including ${charType} characters.`);
 
     if(confirmPasswordOption){
       yourpassword = yourpassword.concat(characters[i]);
+      criteria++;
     }
   }
 
-  return getRandom(yourpassword);
+  if(criteria > 0){
+    return getRandom(yourpassword);
+  }else{
+    alert('You have not selected password criteria. At least one character type should be selected.');
+    return '';
+  }
   
 }
 
 // Function for getting a random element from an array
 function getRandom(arr) {
-  let password = "";
+  let password = '';
   for (let x = 0; x < passwordLength; x++) {
     const randomIndex = Math.floor(Math.random() * arr.length);
     password += arr[randomIndex];
