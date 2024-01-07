@@ -21,6 +21,10 @@ This JavaScript Password Generator is a customizable tool that enables users to 
 
 ![Home Page](./assets/password-generator.png)
 
+## Link to Project
+
+The live version of this project can be found [here](https://caseygirlyn.github.io/Password-Generator/).
+
 ## License
 
 This project is licensed under the [MIT License](LICENSE).
