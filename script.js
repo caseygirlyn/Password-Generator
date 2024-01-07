@@ -93,11 +93,20 @@ var passwordLength = 0;
 // Function to prompt user for password options
 function getPasswordOptions() {
   const charTypes = ['Lowercase','Uppercase','Numeric','Special'];
+  const characters = [lowerCasedCharacters,upperCasedCharacters,numericCharacters,specialCharacters];
+
+  let yourpassword = [];
 
   for (let i = 0; i < charTypes.length; i++) {
     let charType = charTypes[i];
     let confirmPasswordOption = confirm(`Click OK to confirm including ${charType} characters`);
+
+    if(confirmPasswordOption){
+      yourpassword = yourpassword.concat(characters[i]);
+    }
   }
+
+  console.log(yourpassword);
   
 }
 
