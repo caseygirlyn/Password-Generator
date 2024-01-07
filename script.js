@@ -106,13 +106,18 @@ function getPasswordOptions() {
     }
   }
 
-  console.log(yourpassword);
+  return getRandom(yourpassword);
   
 }
 
 // Function for getting a random element from an array
 function getRandom(arr) {
-
+  let password = "";
+  for (let x = 0; x < passwordLength; x++) {
+    const randomIndex = Math.floor(Math.random() * arr.length);
+    password += arr[randomIndex];
+  }
+  return password;
 }
 
 // Function to generate password with user input
