@@ -103,13 +103,15 @@ function getPasswordOptions() {
     let confirmPasswordOption = confirm(`Click OK to confirm including ${charType} characters.`);
 
     if(confirmPasswordOption){
-      yourpassword = yourpassword.concat(characters[i]);
-      criteria++;
+      yourpassword = yourpassword.concat(characters[i]); //Use concat() method to merge two or more arrays.
+      criteria++; //Increment the value of variable criteria if user confirms to include a character type.
     }
   }
 
+  //Check if at least one character type ('Lowercase','Uppercase','Numeric','Special') was selected.  
   if(criteria > 0){
-    return getRandom(yourpassword);
+    // call function to generate password if at least one character type was selected
+    return getRandom(yourpassword); 
   }else{
     alert('You have not selected password criteria. At least one character type should be selected.');
     return '';
@@ -121,6 +123,7 @@ function getPasswordOptions() {
 function getRandom(arr) {
   let password = '';
   for (let x = 0; x < passwordLength; x++) {
+    //Use Math.random() with Math.floor() to obtain a random element from an array
     const randomIndex = Math.floor(Math.random() * arr.length);
     password += arr[randomIndex];
   }
@@ -131,6 +134,7 @@ function getRandom(arr) {
 function generatePassword() {
   passwordLength = parseInt(prompt('How many characters would you like your password to contain?'));
 
+  //Length of password: At least 8 characters but no more than 128
   if(passwordLength >= 8 && passwordLength <= 128){
     return getPasswordOptions();
   }
